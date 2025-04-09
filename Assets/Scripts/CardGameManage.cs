@@ -11,7 +11,6 @@ namespace CardData
         public List<CardType> cardType;
         public int healt;
         public int damageMax;
-        public int damageMin;
         public Sprite cardSprite;
         public List<DamageType> damageType;
     }
@@ -19,11 +18,8 @@ namespace CardData
     //Crear el tipo de carta
     public enum CardType
     {
-        Attack,
-        Defense,
-        Heal,
-        Buff,
-        Debuff
+        Attack, //Saca punto
+        Heal //Da punto
     }
 
 
