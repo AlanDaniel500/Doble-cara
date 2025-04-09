@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CardData
 {
-    //Darl click derecho en Unity y sale una al final para crear cartas
+    //Dar click derecho en Unity y sale una al final para crear cartas
     [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
     public class  Card : ScriptableObject
     {
