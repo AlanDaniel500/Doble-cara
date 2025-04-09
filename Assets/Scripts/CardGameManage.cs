@@ -10,7 +10,7 @@ namespace CardData
         public string cardName;
         public List<CardType> cardType;
         public int healt;
-        public int damageMax;
+        public int maxPoints;
         public Sprite cardSprite;
         public List<DamageType> damageType;
     }
