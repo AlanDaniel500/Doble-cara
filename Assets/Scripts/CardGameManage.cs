@@ -1,46 +1,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardGameManager : MonoBehaviour
+namespace CardData
 {
-    public List<Card> deck = new List<Card>();
-    public Transform[] cardSlots;
-    public bool[] availableCardSlots;
-
-
-
-    public void DrawCard()
+    //Darl click derecho en Unity y sale una al final para crear cartas
+    [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
+    public class  Card : ScriptableObject
     {
-       if(deck.Count >= 1)
-        {
-           Card ranCard = deck[Random.Range(0, deck.Count)];
-
-            for (int i = 0; i < availableCardSlots.Length; i++)
-            {
-                if (availableCardSlots[i] == true)
-                {
-                    /*ranCard.gameObject.SetActive(true);
-                    ranCard.transform.position = cardSlots[i].position;*/ //Sale error en esas partes
-                    availableCardSlots[i] = false;
-                    deck.Remove(ranCard);
-                    return;
-                }
-            }
-        }
+        public string cardName;
+        public List<CardType> cardType;
+        public int healt;
+        public int damageMax;
+        public int damageMin;
+        public Sprite cardSprite;
+        public List<DamageType> damageType;
     }
 
-}
-
-
-public class Card
-{
-    public string name;
-    public int value;
-
-    public Card(string name, int value)
+    //Crear el tipo de carta
+    public enum CardType
     {
-        this.name = name;
-        this.value = value;
+        Attack,
+        Defense,
+        Heal,
+        Buff,
+        Debuff
     }
-}
 
+
+    public enum DamageType
+    {
+        Black,
+        Red
+    }
+
+
+}
