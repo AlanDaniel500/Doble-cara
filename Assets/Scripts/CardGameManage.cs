@@ -9,8 +9,8 @@ namespace CardData
     {
         public string cardName;
         public List<CardType> cardType;
-        public int healt;
-        public int maxPoints;
+        public int pointsGained;  // Puntos que sumás (si la carta es roja)
+        public int pointsStolen;  // Puntos que le sacás al rival (si la carta es negra)
         public Sprite cardSprite;
         public List<DamageType> damageType;
     }
@@ -18,15 +18,14 @@ namespace CardData
     //Crear el tipo de carta
     public enum CardType
     {
-        Attack, //Saca punto
-        Heal //Da punto
+        GainPoints,
+        StealPoints 
     }
-
 
     public enum DamageType
     {
-        Black,
-        Red
+        Red,   // Gana puntos (cartas "buenas")
+        Black  // Resta puntos (cartas "malas")
     }
 
 
