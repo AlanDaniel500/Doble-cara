@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 433611849}
   - component: {fileID: 433611848}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,7 +368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.882202, y: -368.4411}
+  m_AnchoredPosition: {x: -442, y: -368.4411}
   m_SizeDelta: {x: 287.7994, y: 425.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433611848
@@ -870,7 +870,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dce11ca44353245acc62b067d214ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dealCard: {fileID: 1584584919}
+  dealCard:
+  - {fileID: 433611846}
+  - {fileID: 1584584919}
+  - {fileID: 1584584919}
+  - {fileID: 433611846}
+  cardGenerate: 0
 --- !u!4 &1872512635
 Transform:
   m_ObjectHideFlags: 0

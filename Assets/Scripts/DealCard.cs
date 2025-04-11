@@ -4,10 +4,12 @@ using System.Collections;
 
 public class DealCard : MonoBehaviour
 {
-    public GameObject dealCard;
+    public GameObject[] dealCard;
+    public int cardGenerate;
 
     public void DealMyNewCard()
     {
-        dealCard.SetActive(true);
+        cardGenerate = Random.Range(1, 3);
+        dealCard[0].SetActive(true);
     }
 }
