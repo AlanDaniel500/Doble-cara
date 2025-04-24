@@ -31,6 +31,13 @@ public class HandManager : MonoBehaviour
             StartCoroutine(DealCardsCoroutine()); 
             cardsDealt = true;
         }
+
+        // Prueba: presioná "T" para agregar una carta al jugador en cualquier momento
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            AddCardToPlayerHand();
+        }
+
     }
 
     private IEnumerator DealCardsCoroutine()
@@ -76,7 +83,18 @@ public class HandManager : MonoBehaviour
         }
     }
 
+    public void AddCardToPlayerHand()
+    {
+        GameObject card = Instantiate(cardPrefab, spawnPoint.position, spawnPoint.rotation);
+        playerCards.Add(card);
+        UpdateCardPositions(playerCards, playerSpline);
+
+        Debug.Log("Carta agregada manualmente. Total: " + playerCards.Count);
+    }
+
+    /// <summary>
     /// Acomoda las cartas a lo largo del spline, con animación usando DOTween.
+    /// </summary>
     /// <param name="cards">Lista de cartas a posicionar</param>
     /// <param name="splineContainer">SplineContainer que define la curva de la mano</param>
     private void UpdateCardPositions(List<GameObject> cards, SplineContainer splineContainer)
@@ -108,6 +126,9 @@ public class HandManager : MonoBehaviour
             // Animación: mueve y rota cada carta con suavidad
             cards[i].transform.DOMove(worldPos, 0.3f).SetEase(Ease.OutQuad);
             cards[i].transform.DOLocalRotateQuaternion(rotation, 0.3f).SetEase(Ease.OutQuad);
+
+            // (opcional) Debug: mostrar flechas en el editor
+            // Debug.DrawRay(worldPos, worldForward * 0.3f, Color.green, 2f);
         }
     }
 }
