@@ -22,20 +22,25 @@ public class HandManager : MonoBehaviour
         newCard.transform.SetParent(handTransform, false);
         newCard.transform.position = handTransform.position;
 
-        SpriteRenderer renderer = newCard.AddComponent<SpriteRenderer>();
+        // 1) Visual
+        var renderer = newCard.AddComponent<SpriteRenderer>();
         renderer.sprite = cardData.cardImage;
-        renderer.sortingOrder = cardsInHand.Count;
 
-        //Agrega un collider automáticamente
-        BoxCollider2D collider = newCard.AddComponent<BoxCollider2D>();
-        //collider.size = renderer.bounds.size; //ajustar tamaño al sprite
+        // 2) Collider
+        var box = newCard.AddComponent<BoxCollider2D>();
+        box.size = renderer.bounds.size;
 
-        //Hacer que se pueda arrastrar
+        // 3) Draggable
         newCard.AddComponent<CardDraggable>();
+
+        // 4) CardInfo para luego recuperar CardData
+        var info = newCard.AddComponent<CardInfo>();
+        info.data = cardData;
 
         cardsInHand.Add(newCard);
         UpdateHandVisuals();
     }
+
 
 
     public void RemoveCardFromHand(GameObject card)

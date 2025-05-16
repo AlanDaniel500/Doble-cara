@@ -1,25 +1,27 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 
 public class DropArea : MonoBehaviour, ICardDropArea
 {
     public void OnCardDrop(GameObject card)
     {
-        Debug.Log("Carta soltada en zona de drop: " + card.name);
-
-
-        //Fijar la posición en el centro del DropArea
+        Debug.Log("Carta soltada: " + card.name);
         card.transform.position = transform.position;
+        Destroy(card.GetComponent<CardDraggable>());
 
-        // Desactivar su capacidad de ser movida
-        var drag = card.GetComponent<CardDraggable>();
-        if (drag != null)
-            Destroy(drag);
+        // quitar de la mano...
+        FindFirstObjectByType<HandManager>()?.RemoveCardFromHand(card);
 
-        // Removerla de la mano
-        var hand = FindFirstObjectByType<HandManager>();
-        if (hand != null)
-            hand.RemoveCardFromHand(card);
+        // Recuperar CardData desde CardInfo
+        var info = card.GetComponent<CardInfo>();
+        if (info != null && info.data != null)
+        {
+            EnemyAI enemy = FindFirstObjectByType<EnemyAI>();
+            if (enemy != null)
+                enemy.TakeDamage(info.data.damage);
+        }
+        else
+        {
+            Debug.LogError("DropArea: no encontré CardInfo o data en " + card.name);
+        }
     }
 }
