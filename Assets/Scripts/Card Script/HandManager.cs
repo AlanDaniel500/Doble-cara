@@ -2,22 +2,18 @@ using UnityEngine;
 using System.Collections.Generic;
 using CardSystem;
 using System;
+using UnityEditor;
 
 public class HandManager : MonoBehaviour
 {
     public DeckManager deckManager; 
-    public GameObject cardPrefab; 
+
     public Transform handTransform; // Transform de la mano donde se colocarán las cartas
     public float fanSpread = 7.5f; // Ángulo de separación entre cartas
     public float cardSpacing = 100f; // Espacio entre cartas en la mano
     public float verticalSpacing = 100f; // Espacio vertical entre cartas
 
     public List<GameObject> cardsInHand = new List<GameObject>(); // Lista para almacenar las cartas en la mano
-
-    void Start()
-    {
-      
-    }
 
 
     public void AddCardToHand(CardData cardData)
@@ -41,9 +37,15 @@ public class HandManager : MonoBehaviour
         UpdateHandVisuals();
     }
 
-    private void Update()
+
+    public void RemoveCardFromHand(GameObject card)
     {
-        //UpdateHandVisuals(); 
+        if (cardsInHand.Contains(card))
+        {
+            cardsInHand.Remove(card);
+            GameManager.Instance.DeckManager?.RemoveFromHand();
+            UpdateHandVisuals();
+        }
     }
 
     private void UpdateHandVisuals()
