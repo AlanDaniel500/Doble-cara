@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
 
-public class HandManager : MonoBehaviour
+/*public class HandManager : MonoBehaviour
 {
     [Header("Configuración de mano")]
     [SerializeField] private int maxHandSize = 8; // Número máximo de cartas por jugador
@@ -131,4 +131,4 @@ public class HandManager : MonoBehaviour
             // Debug.DrawRay(worldPos, worldForward * 0.3f, Color.green, 2f);
         }
     }
-}
+}*/
