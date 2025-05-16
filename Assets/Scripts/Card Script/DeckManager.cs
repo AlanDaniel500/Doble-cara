@@ -9,6 +9,16 @@ public class DeckManager : MonoBehaviour
 
     private int currentIndex = 0;
 
+
+     private void Start()
+    {
+        CardData[] cards = Resources.LoadAll<CardData>("Cards");
+
+        allCards.AddRange(cards);
+
+    } 
+   
+
     public void DrawCard(HandManager handManager)
     {
         if (allCards.Count == 0)
@@ -19,4 +29,3 @@ public class DeckManager : MonoBehaviour
         currentIndex = (currentIndex + 1) % allCards.Count; // Ciclo a través de las cartas
     }
 }
-

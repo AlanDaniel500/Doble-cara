@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859157674656692617}
   - component: {fileID: 2372706183436640809}
+  - component: {fileID: 7131491267491253059}
   m_Layer: 0
   m_Name: carta 3 oscuridad_0 1
   m_TagString: Untagged
@@ -87,3 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7131491267491253059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585382564264442254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04a92f3f841ae64ab07d0050da7f0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  cardRenderer: {fileID: 2372706183436640809}
+  typeImages:
+  - {fileID: 0}
+  - {fileID: 0}

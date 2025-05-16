@@ -23,4 +23,3 @@ public class DeckManagerEditor : Editor
     }
 }
 #endif
-

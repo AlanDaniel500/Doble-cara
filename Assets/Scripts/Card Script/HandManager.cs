@@ -22,22 +22,28 @@ public class HandManager : MonoBehaviour
 
     public void AddCardToHand(CardData cardData)
     {
-        GameObject newCard = Instantiate(cardPrefab, handTransform.position, Quaternion.identity, handTransform);
+        GameObject newCard = new GameObject("Card_" + cardData.cardName);
+        newCard.transform.SetParent(handTransform, false);
+        newCard.transform.position = handTransform.position;
+
+        SpriteRenderer renderer = newCard.AddComponent<SpriteRenderer>();
+        renderer.sprite = cardData.cardImage;
+        renderer.sortingOrder = cardsInHand.Count;
+
+        //Agrega un collider automáticamente
+        BoxCollider2D collider = newCard.AddComponent<BoxCollider2D>();
+        //collider.size = renderer.bounds.size; //ajustar tamaño al sprite
+
+        //Hacer que se pueda arrastrar
+        newCard.AddComponent<CardDraggable>();
+
         cardsInHand.Add(newCard);
-
-        CardDisplay display = newCard.GetComponent<CardDisplay>();
-        if (display != null)
-        {
-            display.cardData = cardData;
-            display.LoadCardData();
-        }
-
         UpdateHandVisuals();
     }
 
     private void Update()
     {
-        UpdateHandVisuals(); 
+        //UpdateHandVisuals(); 
     }
 
     private void UpdateHandVisuals()

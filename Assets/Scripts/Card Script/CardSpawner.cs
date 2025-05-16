@@ -3,8 +3,8 @@ using CardSystem;
 
 public class CardSpawner : MonoBehaviour
 {
-    public GameObject cardPrefab; // El prefab visual
-    public CardData cardData;     // El SO con los datos
+    public GameObject cardPrefab; 
+    public CardData cardData;     
 
     private void Start()
     {
@@ -18,4 +18,3 @@ public class CardSpawner : MonoBehaviour
         }
     }
 }
-

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05efaefccb6b27f408226278642e4d26, type: 3}
-  m_Name: CARD 2
+  m_Name: New Card
   m_EditorClassIdentifier: 
   cardName: Carta 2
-  cardImage: {fileID: 5807610961080049001, guid: b250b7eecef82c348a1be0b8133f9e37, type: 3}
+  cardImage: {fileID: 21300000, guid: a82ec9ba85a04664e9f03c2413f662ba, type: 3}
   cardType: 1
-  damage: 3
+  damage: 2
   description: 

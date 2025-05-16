@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Card : MonoBehaviour
+/*public class Card : MonoBehaviour
 {
     private Collider2D col;
     private Vector3 startDragPosition;
@@ -44,4 +44,4 @@ public class Card : MonoBehaviour
         p.z = 0;
         return p;
     }
-}
+}*/
