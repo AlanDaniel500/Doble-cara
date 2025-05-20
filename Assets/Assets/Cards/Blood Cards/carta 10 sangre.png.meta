@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 998f392f57dc6d34389ba5438952db0b
+guid: 2437ab6147494a2439ff238ffcb84ca4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5159969504768453064
-    second: carta 9 luz_0
+      213: -2265336032977399155
+    second: carta 10 sangre_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carta 9 luz_0
+      name: carta 10 sangre_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 512
-        height: 513
+        height: 514
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8369d68f21b1468b0800000000000000
-      internalID: -5159969504768453064
+      spriteID: d825d7951e8ef80e0800000000000000
+      internalID: -2265336032977399155
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      carta 9 luz_0: -5159969504768453064
+      carta 10 sangre_0: -2265336032977399155
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

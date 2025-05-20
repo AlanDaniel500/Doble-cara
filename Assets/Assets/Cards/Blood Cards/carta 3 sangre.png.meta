@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 998f392f57dc6d34389ba5438952db0b
+guid: 3afe23ae4d3f1ed4cb296f6c0a4b515c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5159969504768453064
-    second: carta 9 luz_0
+      213: -2442811993191393951
+    second: carta 3 sangre_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 111, y: 0, z: 62, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carta 9 luz_0
+      name: carta 3 sangre_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 512
+        width: 511
         height: 513
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8369d68f21b1468b0800000000000000
-      internalID: -5159969504768453064
+      spriteID: 16553cc4f63691ed0800000000000000
+      internalID: -2442811993191393951
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      carta 9 luz_0: -5159969504768453064
+      carta 3 sangre_0: -2442811993191393951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

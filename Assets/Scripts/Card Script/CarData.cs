@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace CardSystem
 {
+    [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 
     public class CardData : ScriptableObject
     {
