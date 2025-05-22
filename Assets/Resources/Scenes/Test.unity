@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b8c7cebc927fa4eac5af49e4daa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  maxHealth: 150
   currentHealth: 0
   healthBar: {fileID: 748746789}
   winScreen: {fileID: 923211637}
@@ -323,6 +323,7 @@ Transform:
   m_Children:
   - {fileID: 1797359350}
   - {fileID: 178857059}
+  - {fileID: 1576209725}
   - {fileID: 1632877632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1242,6 +1243,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1576209724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1576209725}
+  - component: {fileID: 1576209726}
+  m_Layer: 0
+  m_Name: ComboSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1576209725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576209724}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6101168, y: 2.2766304, z: 7.2999587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202771978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576209726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576209724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0393ddfca9bb6447bd023d4d291959f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solitario: 0
+  damage: 0
 --- !u!1 &1632877631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1422,7 @@ GameObject:
   - component: {fileID: 1797359350}
   - component: {fileID: 1797359351}
   - component: {fileID: 1797359352}
+  - component: {fileID: 1797359353}
   m_Layer: 0
   m_Name: DeckManager
   m_TagString: Untagged
@@ -1425,6 +1473,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cea8da680479574382f4da8dcfe56b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1797359353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797359349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0393ddfca9bb6447bd023d4d291959f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solitario: 0
+  damage: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

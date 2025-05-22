@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: Blood card
   cardImage: {fileID: 21300000, guid: 2437ab6147494a2439ff238ffcb84ca4, type: 3}
   cardType: 3
-  cardNumber: 0
+  cardNumber: 10
   damage: 5
