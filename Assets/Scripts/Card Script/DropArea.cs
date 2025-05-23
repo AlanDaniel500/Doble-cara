@@ -4,7 +4,7 @@ public class DropArea : MonoBehaviour, ICardDropArea
 {
     public void OnCardDrop(GameObject card)
     {
-        Debug.Log("Carta soltada: " + card.name);
+        //Debug.Log("Carta soltada: " + card.name);
         card.transform.position = transform.position;
         Destroy(card.GetComponent<CardDraggable>());
 

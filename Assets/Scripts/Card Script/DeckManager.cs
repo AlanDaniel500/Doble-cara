@@ -82,6 +82,11 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public void DealStartingHandToEnemy()
+    {
+
+    }
+
     public void RemoveFromHand()
     {
         if (currentHandSize > 0)
