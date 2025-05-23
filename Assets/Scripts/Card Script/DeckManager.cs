@@ -29,7 +29,6 @@ public class DeckManager : MonoBehaviour
     {
         if (isInitialized) return;
 
-
         CardData[] cards = Resources.LoadAll<CardData>("Cards");
 
         if (cards.Length == 0)
@@ -39,8 +38,23 @@ public class DeckManager : MonoBehaviour
 
         allCards.Clear();
         allCards.AddRange(cards);
+
+        ShuffleDeck(); //baraja las cartas al iniciar
+
         isInitialized = true;
     }
+
+
+    private void ShuffleDeck()
+    {
+        for (int i = 0; i < allCards.Count; i++)
+        {
+            int randomIndex = Random.Range(i, allCards.Count);
+            (allCards[i], allCards[randomIndex]) = (allCards[randomIndex], allCards[i]);
+        }
+    }
+
+
 
     public void DealStartingHand(HandManager handManager)
     {

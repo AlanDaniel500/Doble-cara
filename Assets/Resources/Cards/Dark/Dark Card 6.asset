@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dark Card 6
   m_EditorClassIdentifier: 
   cardName: 
-  cardImage: {fileID: 21300000, guid: ab7a39cba950e7842b40ba51c38f915b, type: 3}
+  cardImage: {fileID: -3641821375949954987, guid: 7fbb45da0a6b05a4ea7b162ed3a63db8, type: 3}
   cardType: 1
   cardNumber: 6
   damage: 5

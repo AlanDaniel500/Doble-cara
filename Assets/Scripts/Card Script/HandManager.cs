@@ -43,6 +43,7 @@ public class HandManager : MonoBehaviour
 
 
 
+
     public void RemoveCardFromHand(GameObject card)
     {
         if (cardsInHand.Contains(card))

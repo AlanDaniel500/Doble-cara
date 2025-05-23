@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a82ec9ba85a04664e9f03c2413f662ba
+guid: 9a0d0e049a423fa48ace88d6c90f57c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5189756429788044664
-    second: carta 2 oscuridad_0
+      213: -677284602853071321
+    second: carta 9 oscuridad prof_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carta 2 oscuridad_0
+      name: carta 9 oscuridad prof_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 510
-        height: 512
+        width: 506
+        height: 511
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87dd054f9f7b50840800000000000000
-      internalID: 5189756429788044664
+      spriteID: 726e91bfd3dc996f0800000000000000
+      internalID: -677284602853071321
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      carta 2 oscuridad_0: 5189756429788044664
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
