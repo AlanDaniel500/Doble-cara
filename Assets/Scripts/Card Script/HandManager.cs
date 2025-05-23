@@ -32,11 +32,13 @@ public class HandManager : MonoBehaviour
 
         // 3) Draggable
         newCard.AddComponent<CardDraggable>();
+        newCard.AddComponent<ComboSelectable>();
 
         // 4) CardInfo para luego recuperar CardData
         var info = newCard.AddComponent<CardInfo>();
         info.data = cardData;
 
+  
         cardsInHand.Add(newCard);
         UpdateHandVisuals();
     }

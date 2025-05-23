@@ -5,24 +5,42 @@ using CardSystem;
 public class ComboArea : MonoBehaviour, ICardDropArea
 {
     private List<CardData> cardsInCombo = new();
+    private List<GameObject> cardObjects = new();
 
-    public EnemyAI enemy; 
+    public EnemyAI enemy;
 
     public void OnCardDrop(GameObject card)
     {
         card.transform.position = transform.position;
 
-        Destroy(card.GetComponent<ComboDrag>()); //Hace que el jugador no pueda mover las cartas
+        // No destruir el ComboDrag. Así puede sacarse.
 
         FindFirstObjectByType<HandManager>()?.RemoveCardFromHand(card);
 
         var info = card.GetComponent<CardInfo>();
-        if (info != null && info.data != null)
+        if (info != null && info.data != null && !cardsInCombo.Contains(info.data))
         {
             cardsInCombo.Add(info.data);
+            cardObjects.Add(card);
         }
 
         Debug.Log("Carta colocada en ComboArea: " + card.name);
+    }
+
+    public void RemoveCard(GameObject card)
+    {
+        var info = card.GetComponent<CardInfo>();
+        if (info == null || info.data == null) return;
+
+        if (cardsInCombo.Contains(info.data))
+        {
+            cardsInCombo.Remove(info.data);
+            cardObjects.Remove(card);
+
+            // Volver a la mano
+            FindFirstObjectByType<HandManager>()?.AddCardToHand(info.data);
+            Destroy(card);
+        }
     }
 
     public void CheckCombo()
@@ -89,6 +107,12 @@ public class ComboArea : MonoBehaviour, ICardDropArea
 
     public void Clear()
     {
+        foreach (GameObject card in cardObjects)
+        {
+            Destroy(card); // Opcional: o devolverla al mazo
+        }
+
         cardsInCombo.Clear();
+        cardObjects.Clear();
     }
 }
