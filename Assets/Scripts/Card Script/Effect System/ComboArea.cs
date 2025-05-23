@@ -12,7 +12,7 @@ public class ComboArea : MonoBehaviour, ICardDropArea
     {
         card.transform.position = transform.position;
 
-        Destroy(card.GetComponent<ComboDrag>());
+        Destroy(card.GetComponent<ComboDrag>()); //Hace que el jugador no pueda mover las cartas
 
         FindFirstObjectByType<HandManager>()?.RemoveCardFromHand(card);
 
