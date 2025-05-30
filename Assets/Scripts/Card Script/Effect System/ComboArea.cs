@@ -27,6 +27,16 @@ public class ComboArea : MonoBehaviour, ICardDropArea
         Debug.Log("Carta colocada en ComboArea: " + card.name);
     }
 
+    public int GetCardCount()
+    {
+        return cardsInCombo.Count;
+    }
+
+    public CardData GetSingleCard()
+    {
+        return cardsInCombo.Count == 1 ? cardsInCombo[0] : null;
+    }
+
     public void RemoveCard(GameObject card)
     {
         var info = card.GetComponent<CardInfo>();

@@ -54,7 +54,13 @@ public class DeckManager : MonoBehaviour
         }
     }
 
+    public CardData DrawCardForAI()
+    {
+        if (allCards.Count == 0) return null;
 
+        int index = Random.Range(0, allCards.Count);
+        return allCards[index];
+    }
 
     public void DealStartingHand(HandManager handManager)
     {
@@ -96,10 +102,6 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    public void DealStartingHandToEnemy()
-    {
-
-    }
 
     public void RemoveFromHand()
     {

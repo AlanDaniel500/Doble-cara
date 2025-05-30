@@ -16,4 +16,4 @@ MonoBehaviour:
   cardImage: {fileID: 4678601653800799673, guid: 062afa92190e83d4ea1e16b3502e5060, type: 3}
   cardType: 1
   cardNumber: 3
-  damage: 5
+  damage: 3
