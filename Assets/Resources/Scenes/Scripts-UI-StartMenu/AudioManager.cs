@@ -7,9 +7,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    private float masterVolume = 1f;
-    private float musicVolume = 1f;
-    private float sfxVolume = 1f;
+    private const string MasterPref = "MasterVolume";
+    private const string MusicPref = "MusicVolume";
+    private const string SFXPref = "SFXVolume";
 
     void Awake()
     {
@@ -18,6 +18,11 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        // Cargar valores guardados o asignar por defecto
+        float masterVolume = PlayerPrefs.GetFloat(MasterPref, 1f);
+        float musicVolume = PlayerPrefs.GetFloat(MusicPref, 1f);
+        float sfxVolume = PlayerPrefs.GetFloat(SFXPref, 1f);
+
         masterSlider.value = masterVolume;
         musicSlider.value = musicVolume;
         sfxSlider.value = sfxVolume;
@@ -29,19 +34,22 @@ public class AudioManager : MonoBehaviour
 
     private void OnMasterVolumeChanged(float value)
     {
-        masterVolume = value;
-        Debug.Log("Master Volume: " + masterVolume);
+        PlayerPrefs.SetFloat(MasterPref, value);
+        PlayerPrefs.Save();
+        Debug.Log("Master Volume: " + value);
     }
 
     private void OnMusicVolumeChanged(float value)
     {
-        musicVolume = value;
-        Debug.Log("Music Volume: " + musicVolume);
+        PlayerPrefs.SetFloat(MusicPref, value);
+        PlayerPrefs.Save();
+        Debug.Log("Music Volume: " + value);
     }
 
     private void OnSFXVolumeChanged(float value)
     {
-        sfxVolume = value;
-        Debug.Log("SFX Volume: " + sfxVolume);
+        PlayerPrefs.SetFloat(SFXPref, value);
+        PlayerPrefs.Save();
+        Debug.Log("SFX Volume: " + value);
     }
 }
