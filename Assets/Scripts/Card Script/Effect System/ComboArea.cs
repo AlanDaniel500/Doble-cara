@@ -62,18 +62,25 @@ public class ComboArea : MonoBehaviour, ICardDropArea
         }
 
         Dictionary<int, int> numberCount = new();
+        Dictionary<CardData.CardType, int> typeCount = new();
         int totalDamage = 0;
 
         foreach (var card in cardsInCombo)
         {
-            int num = card.cardNumber;
-
-            if (!numberCount.ContainsKey(num))
-                numberCount[num] = 1;
+            // Contar por número
+            if (!numberCount.ContainsKey(card.cardNumber))
+                numberCount[card.cardNumber] = 1;
             else
-                numberCount[num]++;
+                numberCount[card.cardNumber]++;
+
+            // Contar por tipo
+            if (!typeCount.ContainsKey(card.cardType))
+                typeCount[card.cardType] = 1;
+            else
+                typeCount[card.cardType]++;
         }
 
+        // Combos por número
         foreach (var pair in numberCount)
         {
             int count = pair.Value;
@@ -85,22 +92,51 @@ public class ComboArea : MonoBehaviour, ICardDropArea
             }
             else if (count == 3)
             {
-                Debug.Log("Combo: Cerbero (x3) ? 20 de daño");
+                Debug.Log(" Combo: Cerbero (x3) ? 20 de daño");
                 totalDamage += 20;
             }
             else if (count == 4)
             {
-                Debug.Log("Combo: Riders (x4) ? 40 de daño");
+                Debug.Log(" Combo: Riders (x4) ? 40 de daño");
                 totalDamage += 40;
             }
         }
 
+        // Combos por tipo
+        foreach (var pair in typeCount)
+        {
+            var type = pair.Key;
+            int count = pair.Value;
+
+            if (count >= 4)
+            {
+                switch (type)
+                {
+                    case CardData.CardType.Sangre:
+                        Debug.Log(" Combo: GRAN DOLOR (4 Sangre) ? 75 de daño");
+                        totalDamage += 75;
+                        break;
+
+                    case CardData.CardType.Oscuridad:
+                        Debug.Log(" Combo: ABISMO (4 Oscuridad) ? 250 de daño");
+                        totalDamage += 250;
+                        break;
+
+                    case CardData.CardType.Muerte:
+                        Debug.Log(" Combo: PANDEMONIO (4 Muerte) ? 100 de daño");
+                        totalDamage += 100;
+                        break;
+                }
+            }
+        }
+
+        // Aplicar daño si hay algo
         if (totalDamage > 0)
         {
             if (enemy != null)
             {
                 enemy.TakeDamage(totalDamage);
-                Debug.Log("Daño total aplicado: " + totalDamage);
+                Debug.Log(" Daño total aplicado: " + totalDamage);
             }
             else
             {
@@ -109,11 +145,13 @@ public class ComboArea : MonoBehaviour, ICardDropArea
         }
         else
         {
-            Debug.Log("No se activó ningún combo.");
+            Debug.Log(" No se activó ningún combo.");
         }
 
+        // Limpiar cartas
         Clear();
     }
+
 
     public void Clear()
     {
