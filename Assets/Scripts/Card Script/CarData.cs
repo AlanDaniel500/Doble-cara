@@ -19,7 +19,6 @@ namespace CardSystem
             Oscuridad,
             Muerte,
             Sangre,
-            Comodin
         }
 
     }
