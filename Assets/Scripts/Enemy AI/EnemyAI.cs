@@ -43,9 +43,6 @@ public class EnemyAI : MonoBehaviour
         EnemyDead();
     }
 
-
-
-
     private void LayoutEnemyHand()
     {
         for (int i = 0; i < enemyCardObjects.Count; i++)

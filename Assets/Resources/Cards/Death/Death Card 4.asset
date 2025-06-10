@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05efaefccb6b27f408226278642e4d26, type: 3}
-  m_Name: Dark Card 2
+  m_Name: Death Card 4
   m_EditorClassIdentifier: 
   cardName: 
-  cardImage: {fileID: -6542158874792149679, guid: f4f4b8954713fda46bf5ace2c39db9b3, type: 3}
-  cardType: 1
-  cardNumber: 2
-  damage: 1
+  cardImage: {fileID: -1720681086091327230, guid: 7fffc0e455a2ae9438255ba70478036c, type: 3}
+  cardType: 2
+  cardNumber: 4
+  damage: 4

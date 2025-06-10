@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257fd77fababec94aa9998d46236b93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   currentHealth: 0
   healthBar: {fileID: 2039026460}
   loseScreen: {fileID: 1591653437}
@@ -2516,6 +2516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 42483716}
+  player: {fileID: 0}
 --- !u!1 &1885521535
 GameObject:
   m_ObjectHideFlags: 0
