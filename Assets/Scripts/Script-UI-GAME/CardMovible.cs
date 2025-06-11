@@ -112,6 +112,6 @@ public class CardMovible : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
 
         // Ajustar tamaño para cartas en mano (normal)
-        rectTransform.sizeDelta = new Vector2(100, 150); // Ajustá al tamaño que uses normalmente
+        rectTransform.sizeDelta = new Vector2(100, 150);
     }
 }

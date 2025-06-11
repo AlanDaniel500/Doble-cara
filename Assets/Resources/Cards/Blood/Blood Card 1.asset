@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05efaefccb6b27f408226278642e4d26, type: 3}
-  m_Name: Light Card 7
-  m_EditorClassIdentifier: 
+  m_Script: {fileID: 0}
+  m_Name: Blood Card 1
+  m_EditorClassIdentifier: Assembly-CSharp:CardSystem:CardData
   cardName: 
-  cardImage: {fileID: -1143004500601326359, guid: accec49b40e32d447b8bd3d3b8cd72e7, type: 3}
-  cardType: 0
-  cardNumber: 7
-  damage: 7
+  cardImage: {fileID: 5764366646799880222, guid: 0730ab20e185493458fffc0e68fa39d2, type: 3}
+  cardType: 3
+  cardNumber: 0
+  damage: 0
