@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05efaefccb6b27f408226278642e4d26, type: 3}
   m_Name: Blood Card 3
   m_EditorClassIdentifier: 
-  cardName: Blood card
+  cardName: 
   cardImage: {fileID: 4249544449579324240, guid: 4e10392875377e34eb6ee84c7222f6fc, type: 3}
   cardType: 3
   cardNumber: 3
-  damage: 3
+  damage: 0
