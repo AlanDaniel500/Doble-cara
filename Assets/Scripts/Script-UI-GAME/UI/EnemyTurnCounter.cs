@@ -11,7 +11,7 @@ public class EnemyTurnCounter : MonoBehaviour
 
     void Start()
     {
-        ataqueEnemigo = FindObjectOfType<AtaqueEnemigo>();
+        ataqueEnemigo = FindFirstObjectByType<AtaqueEnemigo>();
         ResetCounter();
     }
 

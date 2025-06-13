@@ -13,7 +13,7 @@ public class AtaqueEnemigo : MonoBehaviour
 
     private void Start()
     {
-        playerHealthUI = FindObjectOfType<PlayerHealthUI>();
+        playerHealthUI = FindFirstObjectByType<PlayerHealthUI>();
         UpdateDamageUI();
     }
 
@@ -32,7 +32,7 @@ public class AtaqueEnemigo : MonoBehaviour
     private void UpdateDamageUI()
     {
         if (damageText != null)
-            damageText.text = damage.ToString(); // Eliminado el signo "-"
+            damageText.text = damage.ToString(); // Muestra el daño sin el signo "-"
     }
 
     public void SetDamage(int nuevoDaño)
