@@ -141,4 +141,25 @@ public class CardSpawner : MonoBehaviour
             Destroy(carta);
         }
     }
+
+    // Método nuevo para obtener la lista de cartas seleccionadas con su CardData
+    public List<CardData> ObtenerCartasSeleccionadas()
+    {
+        List<CardData> seleccionadas = new List<CardData>();
+
+        foreach (var cartaGO in cartasEnJuego)
+        {
+            CardSelector selector = cartaGO.GetComponent<CardSelector>();
+            if (selector != null && selector.IsSelected())
+            {
+                CardInfo info = cartaGO.GetComponent<CardInfo>();
+                if (info != null && info.data != null)
+                {
+                    seleccionadas.Add(info.data);
+                }
+            }
+        }
+
+        return seleccionadas;
+    }
 }

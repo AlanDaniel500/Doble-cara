@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6805396640412727001}
   - component: {fileID: 5650192491237601234}
+  - component: {fileID: 841492494331045466}
   m_Layer: 0
   m_Name: ReglasEnemigo
   m_TagString: Untagged
@@ -78,6 +79,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   damageText: {fileID: 4122142879766176893}
+--- !u!114 &841492494331045466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037025872562605531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5196b32e7198944b4eb057913518bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaMaxima: 1000
+  textoVida: {fileID: 4504198032592117656}
 --- !u!1 &3644442539667532999
 GameObject:
   m_ObjectHideFlags: 0
