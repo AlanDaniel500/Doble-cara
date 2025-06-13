@@ -10,6 +10,9 @@ public class PlayerHealthUI : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI healthText;
 
+    // Propiedad pública para que otros scripts puedan leer la vida actual
+    public int CurrentHealth => currentHealth;
+
     void Start()
     {
         UpdateHealthUI();

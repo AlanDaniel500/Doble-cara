@@ -16,7 +16,7 @@ public class ConditionManager : MonoBehaviour
 
     void Start()
     {
-        // Ocultamos los paneles al inicio
+        // Ocultamos ambos paneles al inicio
         victoryPanel.SetActive(false);
         defeatPanel.SetActive(false);
 
@@ -25,16 +25,22 @@ public class ConditionManager : MonoBehaviour
         exitDefeatButton.onClick.AddListener(ExitToMenu);
         tryAgainButton.onClick.AddListener(RestartLevel);
         nextLevelButton.onClick.AddListener(NextLevel);
+
+        // Aquí elegís mostrar derrota o victoria según una condición.
+        // Como esta escena es solo derrota, mostramos solo derrota:
+        ShowDefeatPanel();
     }
 
     public void ShowVictoryPanel()
     {
         victoryPanel.SetActive(true);
+        defeatPanel.SetActive(false);
     }
 
     public void ShowDefeatPanel()
     {
         defeatPanel.SetActive(true);
+        victoryPanel.SetActive(false);
     }
 
     private void ExitToMenu()
@@ -52,3 +58,4 @@ public class ConditionManager : MonoBehaviour
         SceneManager.LoadScene("MejorasScene");
     }
 }
+
