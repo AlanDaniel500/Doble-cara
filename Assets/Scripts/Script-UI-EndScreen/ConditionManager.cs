@@ -26,9 +26,22 @@ public class ConditionManager : MonoBehaviour
         tryAgainButton.onClick.AddListener(RestartLevel);
         nextLevelButton.onClick.AddListener(NextLevel);
 
-        // Aquí elegís mostrar derrota o victoria según una condición.
-        // Como esta escena es solo derrota, mostramos solo derrota:
-        ShowDefeatPanel();
+        // Leemos el resultado guardado en PlayerPrefs
+        int resultado = PlayerPrefs.GetInt("GameResult", -1);
+
+        if (resultado == 1)
+        {
+            ShowVictoryPanel();
+        }
+        else if (resultado == 0)
+        {
+            ShowDefeatPanel();
+        }
+        else
+        {
+            Debug.LogWarning("Resultado de juego no definido, mostrando panel de derrota por defecto.");
+            ShowDefeatPanel();
+        }
     }
 
     public void ShowVictoryPanel()
@@ -58,4 +71,3 @@ public class ConditionManager : MonoBehaviour
         SceneManager.LoadScene("MejorasScene");
     }
 }
-

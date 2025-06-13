@@ -9,6 +9,8 @@ public class Perdio : MonoBehaviour
     {
         if (playerHealthUI != null && playerHealthUI.CurrentHealth <= 0)
         {
+            PlayerPrefs.SetInt("GameResult", 0); // Guardamos derrota
+            PlayerPrefs.Save();
             SceneManager.LoadScene("EndScreen");
         }
     }

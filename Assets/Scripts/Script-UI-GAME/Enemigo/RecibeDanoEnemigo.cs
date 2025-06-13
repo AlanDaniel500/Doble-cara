@@ -8,6 +8,8 @@ public class RecibeDanoEnemigo : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textoVida;
 
+    public int VidaActual => vidaActual;  // Propiedad pública para leer vida actual
+
     private void Start()
     {
         vidaActual = vidaMaxima;
@@ -25,7 +27,7 @@ public class RecibeDanoEnemigo : MonoBehaviour
         if (vidaActual == 0)
         {
             Debug.Log("¡El enemigo ha sido derrotado!");
-            // Lógica para muerte del enemigo
+            // Lógica para muerte del enemigo si hace falta
         }
     }
 

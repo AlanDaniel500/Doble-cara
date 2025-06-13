@@ -37,18 +37,8 @@ public class ComboButtonTester : MonoBehaviour
             return;
         }
 
-        int dañoAplicado = 0;
-
-        if (comboActivo is ComboBasico comboBasico)
-        {
-            CardData cartaMayor = comboBasico.ObtenerCartaDeMayorValor(cartasSeleccionadas);
-            dañoAplicado = cartaMayor != null ? cartaMayor.damage : 0;
-        }
-        else
-        {
-            // En combos especiales, podés definir otra lógica de daño
-            dañoAplicado = 15; // valor temporal
-        }
+        // Acá pedimos el daño real que calcula el combo
+        int dañoAplicado = comboActivo.CalcularDaño(cartasSeleccionadas);
 
         Debug.Log($"Combo detectado: {comboActivo.Nombre}, daño: {dañoAplicado}");
 
@@ -59,4 +49,3 @@ public class ComboButtonTester : MonoBehaviour
         enemyTurnCounter.OnPlayerTurnEnd();
     }
 }
-

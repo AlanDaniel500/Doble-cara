@@ -351,6 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237118238}
   - component: {fileID: 237118239}
+  - component: {fileID: 237118240}
   m_Layer: 0
   m_Name: ConditionWinLoss
   m_TagString: Untagged
@@ -386,6 +387,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealthUI: {fileID: 413150656}
+--- !u!114 &237118240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237118236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1892b8755384e084bb69d4e5823bd355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemigo: {fileID: 1980940939}
 --- !u!1 &363778360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCard
       objectReference: {fileID: 0}
+    - target: {fileID: 841492494331045466, guid: 1c69d6c708524284ab9ffae78555b665, type: 3}
+      propertyPath: vidaMaxima
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2914261327176804054, guid: 1c69d6c708524284ab9ffae78555b665, type: 3}
       propertyPath: m_SizeDelta.x
       value: 80
@@ -1753,7 +1771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5650192491237601234, guid: 1c69d6c708524284ab9ffae78555b665, type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7269674174355575656, guid: 1c69d6c708524284ab9ffae78555b665, type: 3}
       propertyPath: m_UiScaleMode
@@ -2204,6 +2222,9 @@ GameObject:
   m_Component:
   - component: {fileID: 911191918}
   - component: {fileID: 911191919}
+  - component: {fileID: 911191920}
+  - component: {fileID: 911191921}
+  - component: {fileID: 911191922}
   m_Layer: 0
   m_Name: Combos
   m_TagString: Untagged
@@ -2236,6 +2257,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7847564551c56e141b90b831c292677f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &911191920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911191917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c621d41f0f41970439425ad53d98098e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &911191921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911191917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd4f97e5eee58b4dab261dbda42ee5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &911191922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911191917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e17fe2b329bfd44837a6cfae0bf472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &964776139
