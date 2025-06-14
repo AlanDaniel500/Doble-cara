@@ -7,9 +7,11 @@ public class EnemyTurnCounter : MonoBehaviour
     [SerializeField] private int maxTurns = 2;
 
     private int currentTurn;
+    private AtaqueEnemigo ataqueEnemigo;
 
     void Start()
     {
+        ataqueEnemigo = FindFirstObjectByType<AtaqueEnemigo>();
         ResetCounter();
     }
 
@@ -19,7 +21,7 @@ public class EnemyTurnCounter : MonoBehaviour
 
         if (currentTurn <= 0)
         {
-            TriggerEnemyAction(); // Acá se ataca o hace algo
+            TriggerEnemyAction();
             ResetCounter();
         }
 
@@ -29,7 +31,11 @@ public class EnemyTurnCounter : MonoBehaviour
     private void TriggerEnemyAction()
     {
         Debug.Log("¡El enemigo ataca!");
-        // Acá va la lógica del ataque enemigo
+
+        if (ataqueEnemigo != null)
+        {
+            ataqueEnemigo.EjecutarAtaque();
+        }
     }
 
     private void ResetCounter()
@@ -43,7 +49,6 @@ public class EnemyTurnCounter : MonoBehaviour
         turnText.text = currentTurn.ToString();
     }
 
-    // Podés usar esto si necesitás cambiar la dificultad por nivel
     public void SetMaxTurns(int newMax)
     {
         maxTurns = newMax;

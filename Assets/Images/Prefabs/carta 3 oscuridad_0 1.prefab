@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 5.06, y: 5.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7131491267491253059
@@ -100,8 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04a92f3f841ae64ab07d0050da7f0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
-  cardRenderer: {fileID: 2372706183436640809}
-  typeImages:
-  - {fileID: 0}
-  - {fileID: 0}
+  CardData: {fileID: 11400000, guid: 3d129f233332a4a47b8f7cd3b7785867, type: 2}
+  cardImageUI: {fileID: 0}

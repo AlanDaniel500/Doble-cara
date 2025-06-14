@@ -16,7 +16,7 @@ public class ConditionManager : MonoBehaviour
 
     void Start()
     {
-        // Ocultamos los paneles al inicio
+        // Ocultamos ambos paneles al inicio
         victoryPanel.SetActive(false);
         defeatPanel.SetActive(false);
 
@@ -25,16 +25,35 @@ public class ConditionManager : MonoBehaviour
         exitDefeatButton.onClick.AddListener(ExitToMenu);
         tryAgainButton.onClick.AddListener(RestartLevel);
         nextLevelButton.onClick.AddListener(NextLevel);
+
+        // Leemos el resultado guardado en PlayerPrefs
+        int resultado = PlayerPrefs.GetInt("GameResult", -1);
+
+        if (resultado == 1)
+        {
+            ShowVictoryPanel();
+        }
+        else if (resultado == 0)
+        {
+            ShowDefeatPanel();
+        }
+        else
+        {
+            Debug.LogWarning("Resultado de juego no definido, mostrando panel de derrota por defecto.");
+            ShowDefeatPanel();
+        }
     }
 
     public void ShowVictoryPanel()
     {
         victoryPanel.SetActive(true);
+        defeatPanel.SetActive(false);
     }
 
     public void ShowDefeatPanel()
     {
         defeatPanel.SetActive(true);
+        victoryPanel.SetActive(false);
     }
 
     private void ExitToMenu()
