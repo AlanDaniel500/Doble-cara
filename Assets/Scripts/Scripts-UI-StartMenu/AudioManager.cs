@@ -1,128 +1,140 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    [Header("Sliders de volumen")]
-    [SerializeField] private Slider masterSlider;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider sfxSlider;
-
-    [Header("Audio Mixer")]
-    [SerializeField] private AudioMixer myMixer;
-
-    [Header("Música por escena")]
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioClip menuMusic;
-    [SerializeField] private AudioClip gameMusic;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("MusicVolume"))
+        if (Instance != this) return;
+
+        float musicVol = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+        musicSource.volume = musicVol;
+        //sfxSource.volume = sfxVol;
+
+        // Si no hay música aún, arrancar la correcta
+        if (musicSource.clip == null)
         {
-            LoadVolume();
+            ChangeMusicByScene();
         }
-        else
+    }
+
+    private void ChangeMusicByScene()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        switch (sceneName)
         {
-            SetMusicVolume();
-            SetMasterVolume();
-            SetSFXVolume();
+            case "StartMenu":
+                PlayMusic("MainTheme");
+                break;
+
+            case "GAME":
+                PlayMusic("LevelTheme");
+                break;
+
+            case "MejorasScene":
+                PlayMusic("UpgradeTheme");
+                break;
+
+            default:
+                PlayMusic("MainTheme");
+                break;
         }
+    }
+
+
+
+    public void PlayMusic(string name)
+    {
+        Sound s = Array.Find(musicSounds, s => s.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound Not Found: " + name);
+            return;
+        }
+
+        musicSource.clip = s.clip;
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    /*public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("SFX Not Found: " + name);
+            return;
+        }
+
+        sfxSource.PlayOneShot(s.clip);
+    }*/
+
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+
+    /*public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }*/
+
+    public void SetMusicVolume(float value)
+    {
+        musicSource.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    /*public void SetSFXVolume(float value)
+    {
+        sfxSource.volume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
+    }*/
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Asignar sliders desde la escena
-        masterSlider = GameObject.Find("Master_Slider")?.GetComponent<Slider>();
-        musicSlider = GameObject.Find("Music_Slider")?.GetComponent<Slider>();
-        sfxSlider = GameObject.Find("SFX_Slider")?.GetComponent<Slider>();
-
-        if (masterSlider != null)
+        if (scene.name == "StartMenu")
         {
-            masterSlider.onValueChanged.AddListener((v) => SetMasterVolume());
-            masterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1f);
+            PlayMusic("MainTheme");
         }
-
-        if (musicSlider != null)
+        else if (scene.name == "GAME")
         {
-            musicSlider.onValueChanged.AddListener((v) => SetMusicVolume());
-            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+            PlayMusic("BGM-LEVELS");
         }
-
-        if (sfxSlider != null)
-        {
-            sfxSlider.onValueChanged.AddListener((v) => SetSFXVolume());
-            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
-        }
-
-        // Cambiar la música según la escena
-        if (musicSource != null)
-        {
-            if (scene.name == "StartMenu" && musicSource.clip != menuMusic)
-            {
-                musicSource.clip = menuMusic;
-                musicSource.Play();
-            }
-            else if (scene.name == "GAME" && musicSource.clip != gameMusic)
-            {
-                musicSource.clip = gameMusic;
-                musicSource.Play();
-            }
-        }
+        // Agregar más escenas
     }
 
-    public void SetMasterVolume()
-    {
-        if (masterSlider == null) return;
 
-        float volume = Mathf.Clamp(masterSlider.value, 0.001f, 1f);
-        myMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MasterVolume", volume);
-    }
-
-    public void SetMusicVolume()
-    {
-        if (musicSlider == null) return;
-
-        float volume = Mathf.Clamp(musicSlider.value, 0.001f, 1f);
-        myMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("MusicVolume", volume);
-    }
-
-    public void SetSFXVolume()
-    {
-        if (sfxSlider == null) return;
-
-        float volume = Mathf.Clamp(sfxSlider.value, 0.001f, 1f);
-        myMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
-        PlayerPrefs.SetFloat("SFXVolume", volume);
-    }
-
-    private void LoadVolume()
-    {
-        float master = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        float music = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        float sfx = PlayerPrefs.GetFloat("SFXVolume", 1f);
-
-        myMixer.SetFloat("MasterVolume", Mathf.Log10(master) * 20);
-        myMixer.SetFloat("MusicVolume", Mathf.Log10(music) * 20);
-        myMixer.SetFloat("SFXVolume", Mathf.Log10(sfx) * 20);
-    }
 }
