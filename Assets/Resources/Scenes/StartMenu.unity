@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94cbcb1f47e2a2744a284d38ab7aff17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Master_Slider: {fileID: 728537080}
   Music_Slider: {fileID: 975044515}
   SFX_Slider: {fileID: 852111576}
 --- !u!1 &359155593
@@ -1140,9 +1141,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 55575399}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: SetMasterVolume
+      - m_Target: {fileID: 323092957}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: MasterVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
