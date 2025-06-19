@@ -26,8 +26,14 @@ public class AtaqueEnemigo : MonoBehaviour
             playerHealthUI.TakeDamage(damage);
         }
 
+        if (CameraShake.Instance != null)
+        {
+            StartCoroutine(CameraShake.Instance.Shake(0.2f, 0.15f));
+        }
+
         UpdateDamageUI();
     }
+
 
     private void UpdateDamageUI()
     {
