@@ -3,26 +3,24 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public Slider Music_Slider, SFX_Slider;
+    public Slider Master_Slider,Music_Slider, SFX_Slider;
 
     private void Start()
     {
+        if (Master_Slider != null)
+        {
+            float masterVol = PlayerPrefs.GetFloat("MasterVolume", 1f);
+            Master_Slider.value = masterVol;
+            AudioManager.Instance.SetMasterVolume(masterVol);
+        }
 
-        // Cargar valores al iniciar el panel
+        // Ya tenías esto:
         if (Music_Slider != null)
         {
             float musicVol = PlayerPrefs.GetFloat("MusicVolume", 1f);
             Music_Slider.value = musicVol;
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.SetMusicVolume(musicVol);
+            AudioManager.Instance.SetMusicVolume(musicVol);
         }
-
-        /*if (SFX_Slider != null)
-        {
-            float sfxVol = PlayerPrefs.GetFloat("SFXVolume", 1f);
-            SFX_Slider.value = sfxVol;
-            AudioManager.Instance.SetSFXVolume(sfxVol);
-        }*/
     }
 
     public void ToggleMusic()
@@ -33,6 +31,12 @@ public class UIController : MonoBehaviour
     public void ToggleSFX()
     {
         //AudioManager.Instance.ToggleSFX();
+    }
+
+    public void MasterVolume()
+    {
+        if (Master_Slider != null)
+            AudioManager.Instance.SetMasterVolume(Master_Slider.value);
     }
 
     public void MusicVolume()
