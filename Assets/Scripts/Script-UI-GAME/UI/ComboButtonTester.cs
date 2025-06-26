@@ -8,10 +8,11 @@ public class ComboButtonTester : MonoBehaviour
     [SerializeField] private CardSpawner cardSpawner;
     [SerializeField] private ManagerCombos managerCombos;
     [SerializeField] private RecibeDanoEnemigo enemigo;
+    [SerializeField] private ComboUIManager comboUIManager; // ← Nuevo campo agregado
 
     public void OnComboPressed()
     {
-        if (cardSpawner == null || managerCombos == null || enemigo == null)
+        if (cardSpawner == null || managerCombos == null || enemigo == null || comboUIManager == null)
         {
             Debug.LogError("Faltan referencias necesarias en ComboButtonTester");
             return;
@@ -37,15 +38,14 @@ public class ComboButtonTester : MonoBehaviour
             return;
         }
 
-        // Acá pedimos el daño real que calcula el combo
         int dañoAplicado = comboActivo.CalcularDaño(cartasSeleccionadas);
-
         Debug.Log($"Combo detectado: {comboActivo.Nombre}, daño: {dañoAplicado}");
 
         enemigo.AplicarDanoDesdeCombo(dañoAplicado);
 
         cardSpawner.EliminarCartasSeleccionadas();
         CardSelector.ReiniciarContador();
+        comboUIManager.Limpiar(); // ← Limpia el texto del combo
         enemyTurnCounter.OnPlayerTurnEnd();
     }
 }
